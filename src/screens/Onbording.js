@@ -47,7 +47,7 @@ class Onbording extends Component {
 
                 </View>
                 <View style={styles.textContainer}>
-                    <Text style={styles.textStyle}>Burgers City</Text>
+                    <Text style={styles.textStyle}>Burger City Dhaka</Text>
 
                 </View>
                 <View style={styles.button}>
@@ -105,8 +105,8 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontFamily: "Montserrat-Bold",
-        color: 'black',
-        fontSize: 31,
+        color: 'cyan',
+        fontSize: 20,
         fontWeight: '600'
 
 

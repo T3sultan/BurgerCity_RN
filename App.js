@@ -3,10 +3,16 @@ import React,{useState,useEffect} from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import Onbording from './src/screens/Onbording';
+import Login from './src/screens/Login';
+import ForgetPassword from './src/screens/ForgetPassword';
+import Otp from './src/screens/Otp';
+import MobileNumber from './src/screens/MobileNumber';
 
 
 const customfonts={
   'Montserrat-Bold':require('./assets/fonts/Montserrat-Bold.ttf'),
+  'Montserrat-SemiBold':require('./assets/fonts/Montserrat-SemiBold.ttf'),
+  'Montserrat-ExtraBold':require('./assets/fonts/Montserrat-ExtraBold.ttf'),
   'Montserrat-SemiBold':require('./assets/fonts/Montserrat-SemiBold.ttf'),
 }
 
@@ -22,7 +28,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-     {assetsLoaded ? <Onbording/> : <ActivityIndicator size="large"/>}
+     {assetsLoaded ? <Login/> : <ActivityIndicator size="large"/>}
     </View>
   );
 }
