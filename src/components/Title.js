@@ -15,7 +15,7 @@ const Title = ({
 const styles = StyleSheet.create({
     container: {
         marginLeft: 20,
-        marginTop: 29
+        marginTop: 10
 
 
     },

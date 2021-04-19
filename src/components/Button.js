@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         borderRadius: 15,
         backgroundColor: 'yellow',
+        marginTop:4
 
 
 

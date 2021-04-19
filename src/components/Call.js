@@ -34,7 +34,7 @@ const Call = ({
 
 const styles = StyleSheet.create({
     container: {
-        height: 55,
+        height: 75,
         marginLeft: 20,
         marginRight: 20,
         backgroundColor: "#ffff",
