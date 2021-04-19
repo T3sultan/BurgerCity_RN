@@ -88,7 +88,7 @@ const DeliveryAddress = ({ navigation, route }) => {
                     <Button
 
                         text="Proceed to Order"
-                        onPress={() => { navigation.push("DeliveryAddressConfirmed") }} />
+                        onPress={() => { navigation.push("Menu") }} />
                     <View style={{ marginTop: 10 }}>
                         <Button
                             text="Change Address" style={{ backgroundColor: "#000000" }} onPress={() => Alert.alert("Change Address")}
