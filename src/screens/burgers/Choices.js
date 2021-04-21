@@ -32,7 +32,7 @@ const Choices = ({ navigation, route }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (<HeaderRight onPress={() => { navigation.navigate("WalletPayment") }} />),
-            headerLeft: () => (<HeaderLanguageChange onPress={() => { Alert.alert("Do Someting") }} />)
+            headerLeft: () => (<HeaderLanguageChange onPress={() => { navigation.goBack() }} />)
         })
     });
 
@@ -78,7 +78,7 @@ const Choices = ({ navigation, route }) => {
 
                 </View>
             </View>
-            <Button text="Proceed to Add Cart" onPress={() => { Alert.alert('Proceed to add cart') }} />
+            <Button text="Proceed to Add Cart" onPress={() => { navigation.push("AddToCart") }} />
 
         </Background>
     );

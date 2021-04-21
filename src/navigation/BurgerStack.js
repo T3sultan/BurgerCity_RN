@@ -10,6 +10,9 @@ import Menu from '../screens/burgers/Menu';
 import Burgers from '../screens/burgers/Burgers';
 import SelectItem from '../screens/burgers/SelectItem';
 import Choices from '../screens/burgers/Choices';
+import AddToCart from '../screens/burgers/AddToCart';
+import MainItems from '../screens/burgers/MainItems';
+import FullItems from '../screens/burgers/FullItems';
 
 
 const BurgerStack = ({params})=>{
@@ -41,6 +44,18 @@ const BurgerStack = ({params})=>{
            />
            <Stack.Screen
                name="Choices" component={Choices}
+               options={{headerTitle:props=><HeaderTitle/>}}
+           />
+           <Stack.Screen
+               name="AddToCart" component={AddToCart}
+               options={{headerTitle:props=><HeaderTitle/>}}
+           />
+           <Stack.Screen
+               name="MainItems" component={MainItems}
+               options={{headerTitle:props=><HeaderTitle/>}}
+           />
+           <Stack.Screen
+               name="FullItems" component={FullItems}
                options={{headerTitle:props=><HeaderTitle/>}}
            />
         </Stack.Navigator>

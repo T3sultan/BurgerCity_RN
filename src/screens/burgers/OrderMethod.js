@@ -39,7 +39,7 @@ const OrderMethod = ({ navigation, route }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (<HeaderRight onPress={() => { navigation.navigate("WalletPayment") }} />),
-            headerLeft: () => (<HeaderLanguageChange onPress={() => { Alert.alert("Do Someting") }} />)
+            headerLeft: () => (<HeaderLanguageChange onPress={() => { navigation.goBack() }} />)
         })
     });
 
