@@ -13,14 +13,15 @@ const Button = ({
 const styles = StyleSheet.create({
     container: {
         width: width,
-        height: 40,
+        height: 50,
         justifyContent: "center",
         alignItems: 'center',
         alignContent: 'center',
         borderRadius: 15,
         backgroundColor: 'yellow',
-        marginTop:4
-
+        marginTop:0,
+        marginRight:0
+      
 
 
     },
