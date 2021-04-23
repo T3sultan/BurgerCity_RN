@@ -1,54 +1,127 @@
-import React,{useLayoutEffect} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useLayoutEffect, useState } from 'react';
+import { View, Text, StyleSheet, Alert,ScrollView } from 'react-native';
+import Background from '../../components/Background';
 import Button from '../../components/Button';
-import HeadeerBack from '../../components/HeaderBack';
+import Call from '../../components/Call';
+import HeaderLanguageChange from '../../components/HeaderLanguageChange';
 import HeaderRight from '../../components/HeaderRight';
+import Title from '../../components/Title';
 
-const WalletPayment = ({ navigation,route }) => {
-    useLayoutEffect(()=>{
+const Methods = [
+    {
+        id: 1,
+        name: "Savings Amount",
+        selected: false,
+        icon: require('../../../assets/images/tick.png'),
+        activeIcon: require('../../../assets/images/tick-inactive.png'),
+    },
+    {
+        id: 2,
+        name: "Cash on Delivery",
+        selected: true,
+        icon: require('../../../assets/images/tick.png'),
+        activeIcon: require('../../../assets/images/tick-inactive.png'),
+    },
+    {
+        id: 3,
+        name: "Android Cell Phone Pay",
+        selected: false,
+        icon: require('../../../assets/images/tick.png'),
+        activeIcon: require('../../../assets/images/tick-inactive.png'),
+    },
+    {
+        id: 4,
+        name: "iPhone Pay",
+        selected: false,
+        icon: require('../../../assets/images/tick.png'),
+        activeIcon: require('../../../assets/images/tick-inactive.png'),
+    },
+    {
+        id: 5,
+        name: "Cheese Burger",
+        selected: false,
+        icon: require('../../../assets/images/tick.png'),
+        activeIcon: require('../../../assets/images/tick-inactive.png'),
+    },
+    {
+        id: 6,
+        name: "Vegetables Burgers",
+        selected: false,
+        icon: require('../../../assets/images/tick.png'),
+        activeIcon: require('../../../assets/images/tick-inactive.png'),
+    },
+    {
+        id: 7,
+        name: "Whiskey King Burger. ",
+        selected: false,
+        icon: require('../../../assets/images/tick.png'),
+        activeIcon: require('../../../assets/images/tick-inactive.png'),
+    },
+    
+
+
+
+
+]
+
+const WalletPayment = ({ navigation, route }) => {
+    const [data, setData] = useState(Methods);
+
+    useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight:()=>(<HeaderRight onPress={()=>{navigation.navigate("WalletScreen")}}/>),
-            headerLeft:()=>(<HeadeerBack onPress={()=>{navigation.navigate("Home")}}/>)
+            headerRight: () => (<HeaderRight onPress={() => { navigation.navigate("WalletPayment") }} />),
+            headerLeft: () => (<HeaderLanguageChange onPress={() => { navigation.goBack() }} />)
         })
-    })
+    });
 
+
+    const _renderItem = (item, index) => {
+        return (
+            <Text
+                key={item.id}
+                style={{
+                    fontFamily: "Montserrat-SemiBold",
+                    fontSize: 14,
+                    lineHeight: 20
+                }}>
+                {item.name}</Text>
+        )
+    }
+
+    const _onItemClick = (item, index) => {
+        // Alert.alert(''+index)
+        let temp = [];
+        data.map((entry, idx) => {
+            if (idx === index) {
+                entry.selected = true;
+                temp.push(entry);
+            }
+            else {
+                entry.selected = false;
+                temp.push(entry)
+            }
+        });
+        setData(temp);
+    }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.container1}>
-                <Text style={styles.textStyle}>Wallet Payment</Text>
-
-            </View>
-            <View style={{paddingTop:400}}>
-                <Button text="Go to confirmed screen"
-                  onPress={()=>{
-                      navigation.push('ConfirmedScreen')
-
-                  }} 
-
-                />
-            </View>
-
-        </View>
+        <Background>
+            <ScrollView style={styles.container}>
+                <Title title="Order Payment"/>
+                <View style={{ marginTop: 7 }}>
+                    <Call data={data} renderItem={_renderItem} onPress={_onItemClick} />
+                   
+                </View>
+            </ScrollView>
+                <Button text="Confirm" onPress={()=>{navigation.push("ConfirmedScreen")}}/>
+          
+        </Background>
     );
 };
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+    },
 
-    },
-    container1:{
-        width:250,
-        height:100,
-        backgroundColor:"#000000",
-        justifyContent:'center',
-        alignItems:'center',
-    },
-    textStyle:{
-        color:'cyan',
-        fontSize:25
-    }
 })
 export default WalletPayment;

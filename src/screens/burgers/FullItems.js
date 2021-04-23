@@ -144,6 +144,7 @@ const FullItems = ({ navigation, route }) => {
                 <Button
                     text="Confirm"
                     onPress={() => {
+                        navigation.navigate("WalletPayment")
 
 
                     }}
