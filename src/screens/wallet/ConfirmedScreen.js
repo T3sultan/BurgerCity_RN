@@ -78,7 +78,7 @@ const ConfirmedScreen = ({ navigation, route }) => {
 
                             }}
                             title="Track your Order"
-                            onPress={() => { }} ></Button>
+                            onPress={() => {navigation.navigate('TrackScreen') }} ></Button>
 
                     </View>
                     <View
