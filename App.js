@@ -9,6 +9,8 @@ import Otp from './src/screens/Otp';
 import MobileNumber from './src/screens/MobileNumber';
 import { NavigationContainer } from '@react-navigation/native'
 import TabNavigator from './src/navigation/TabNavigator';
+import { createSwitchNavigator } from '@react-navigation/compat'
+import SettingsStack from './src/navigation/SettingsStack';
 
 
 const customfonts = {
@@ -17,6 +19,21 @@ const customfonts = {
   'Montserrat-ExtraBold': require('./assets/fonts/Montserrat-ExtraBold.ttf'),
   'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.ttf'),
 }
+
+const AppNavigator = createSwitchNavigator({
+  Onbording: { screen: Onbording },
+  Login: { screen: Login },
+  ForgetPassword: { screen: ForgetPassword },
+  Otp: { screen: Otp },
+  MobileNumber: { screen: MobileNumber },
+  Settings:SettingsStack,
+  HomeScreen: TabNavigator
+}, {
+  initialRouteName: 'Onbording'
+})
+
+
+
 
 export default function App() {
   const [assetsLoaded, setAssetsLoaded] = useState(false);
@@ -36,8 +53,8 @@ export default function App() {
 
   return assetsLoaded ? (
     <NavigationContainer>
-    <StatusBar/>
-      <TabNavigator />
+      <StatusBar />
+      <AppNavigator />
 
     </NavigationContainer>
   ) : (

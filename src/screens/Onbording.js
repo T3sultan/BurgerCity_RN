@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import { Alert, View, Text, StyleSheet, Image, Dimensions,StatusBar } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Button from '../../src/components/Button';
 
@@ -24,7 +24,7 @@ class Onbording extends Component {
         };
     }
     _btnClick = () => {
-        Alert.alert('Get start here')
+        this.props.navigation.navigate('Login');
 
     }
 
@@ -32,6 +32,7 @@ class Onbording extends Component {
     render() {
         return (
             <View style={styles.container}>
+            <StatusBar barStyle={'light-content'}/>
                 <Swiper autoplay={true}>
                     {this.state.slides.map((slide) => {
                         return (

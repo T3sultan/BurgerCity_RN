@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, View, Text, StyleSheet, Image, Dimensions, ImageBackground } from 'react-native';
+import { Alert, View, Text, StyleSheet, Image, Dimensions, ImageBackground,StatusBar } from 'react-native';
 import { RadioButton, RadioGroup } from 'react-native-flexi-radio-button';
 
 const { width, height } = Dimensions.get("window");
@@ -14,9 +14,10 @@ const tipTitle = "Please enter a new password and confirm the password";
 
 
 const ForgetPassword = ({
-    params,
+    navigation,route
 }) => (
     <View style={styles.container}>
+    <StatusBar barStyle={'light-content'}/>
         <ImageBackground
             source={require('../../assets/images/burger4.jpg')}
             style={{ width: width, height: height }}
@@ -49,7 +50,9 @@ const ForgetPassword = ({
             </View>
 
             <View style={styles.button}>
-                <Button text="Submit" />
+                <Button text="Submit" onPress={()=>{
+                    navigation.navigate("Login");
+                }}/>
 
             </View>
 
