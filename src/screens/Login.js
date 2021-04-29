@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, View, Text, StyleSheet, Image, Dimensions, ImageBackground } from 'react-native';
+import { StatusBar, View, Text, StyleSheet, Image, Dimensions, ImageBackground,TouchableOpacity } from 'react-native';
 import { RadioButton, RadioGroup } from 'react-native-flexi-radio-button';
 
 const { width, height } = Dimensions.get("window");
@@ -15,9 +15,10 @@ const signup = "Your New user? Singup up"
 const terms = "By signing up "
 
 const Login = ({
-    params,
+    navigation,route
 }) => (
     <View style={styles.container}>
+    <StatusBar barStyle={'light-content'}/>
         <ImageBackground
             source={require('../../assets/images/burger4.jpg')}
             style={{ width: width, height: height }}
@@ -57,13 +58,21 @@ const Login = ({
                         </RadioButton>
                     </RadioGroup>
                 </View>
-                <View>
-                    <Text style={styles.forgotTextStyle}>Forgot Password ?</Text>
-                </View>
+                <TouchableOpacity>
+                    <Text style={styles.forgotTextStyle} 
+                    onPress={()=>{
+                        navigation.navigate('ForgetPassword');
+                    }}
+                    >Forgot Password ?</Text>
+                </TouchableOpacity>
 
             </View>
             <View style={styles.button}>
-                <Button text="Login" />
+                <Button text="Login" 
+                    onPress={()=>{
+                        navigation.navigate('HomeScreen')
+                    }}
+                />
 
             </View>
             <View style={styles.signup}>

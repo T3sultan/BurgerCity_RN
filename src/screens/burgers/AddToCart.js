@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { View, Text, StyleSheet, Alert, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Alert, Image, TouchableOpacity, Dimensions} from 'react-native';
 import Background from '../../components/Background';
 import Button from '../../components/Button';
 import Call from '../../components/Call';
